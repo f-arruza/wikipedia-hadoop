@@ -77,7 +77,7 @@ public class WikipediaGraphMapper extends MapReduceBase implements
                 // Person 2
                 String personContent2 = this.extractPersons(document);
                 
-                // Validar categoría
+                // Validar categorÃ­a
 //                String catMatch = this.findMatchingCategory(document);
                 
                 if(!dateContent.isEmpty()) {
@@ -183,10 +183,10 @@ public class WikipediaGraphMapper extends MapReduceBase implements
                         } else break;
                     }
                     if(startMonth.isEmpty()) {
-                        // -- Formato #2: 15 september – 27 november 1944
+                        // -- Formato #2: 15 september - 27 november 1944
                         regex = "((3[01]|[12][0-9]|[1-9]) ((jan|febr)uary|"
                                 + "march|april|may|june|july|august|october|"
-                                + "(sept|nov|dec)ember) (-|–) (3[01]|[12][0-9]|"
+                                + "(sept|nov|dec)ember) (-|-) (3[01]|[12][0-9]|"
                                 + "[1-9]) ((jan|febr)uary|march|april|may|june|"
                                 + "july|august|october|(sept|nov|dec)ember) "
                                 + "(\\d{4}))";
@@ -229,11 +229,11 @@ public class WikipediaGraphMapper extends MapReduceBase implements
                                     endYear = matcher.group(9);
                                 }
                                 else {
-                                    // -- Formato #5: october 16–28, 1962
+                                    // -- Formato #5: october 16-28, 1962
                                     regex = "(((jan|febr)uary|march|april|may|"
                                             + "june|july|august|october|(sept|"
                                             + "nov|dec)ember) (3[01]|[12][0-9]|"
-                                            + "[1-9])(-|–)(3[01]|[12][0-9]|[1-9]), (\\d{4}))";
+                                            + "[1-9])(-|-)(3[01]|[12][0-9]|[1-9]), (\\d{4}))";
                                     pattern = Pattern.compile(regex);
                                     matcher = pattern.matcher(dateContent);
                                     if(matcher.find()) {
@@ -255,7 +255,7 @@ public class WikipediaGraphMapper extends MapReduceBase implements
                         endYear = startYear;
                     }
                     if(!startMonth.isEmpty()) {
-                        // Convertir mes de texto a número
+                        // Convertir mes de texto a nÃºmero
                         SimpleDateFormat inputFormat = new SimpleDateFormat("MMMM", Locale.ENGLISH);
                         Calendar startCal = Calendar.getInstance();
                         Calendar endCal = Calendar.getInstance();
@@ -448,7 +448,7 @@ public class WikipediaGraphMapper extends MapReduceBase implements
                     }
                     
                     if(!month.isEmpty()) {
-                        // Convertir mes de texto a número    
+                        // Convertir mes de texto a nÃºmero    
                         String month_number = "01";
                         Calendar date = Calendar.getInstance();
                         try {
@@ -592,7 +592,7 @@ public class WikipediaGraphMapper extends MapReduceBase implements
                     }
                     
                     if(!month.isEmpty()) {
-                        // Convertir mes de texto a número    
+                        // Convertir mes de texto a nÃºmero    
                         String month_number = "01";
                         Calendar date = Calendar.getInstance();
                         try {

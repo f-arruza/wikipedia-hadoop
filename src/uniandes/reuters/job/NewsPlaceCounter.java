@@ -31,7 +31,7 @@ public class NewsPlaceCounter {
 	public static void ejecutarJob(String entrada, String salida) throws IOException,ClassNotFoundException, InterruptedException
 	{
 		/**
-		 * Objeto de configuración, dependiendo de la versión de Hadoop 
+		 * Objeto de configuraciÃ³n, dependiendo de la versiÃ³n de Hadoop 
 		 * uno u otro es requerido. 
 		 * */
 		Configuration conf = new Configuration();		

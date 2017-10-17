@@ -27,13 +27,13 @@ public class GraphJob {
     
     public static void main(String[] args)  {
         if(args.length < 4){
-            System.out.println("Se necesitan TODOS los parámetros de entrada.");
+            System.out.println("Se necesitan TODOS los parÃ¡metros de entrada.");
             System.exit(-1);
         }
         String input = args[0];     // Carpeta o archivo de entrada
         String output = args[1];    // Carpeta de salida
-        String startDate = args[2]; // Fecha de inicio para filtro de hechos históricos
-        String endDate = args[3];   // Fecha de fin para filtro de hechos históricos
+        String startDate = args[2]; // Fecha de inicio para filtro de hechos histÃ³ricos
+        String endDate = args[3];   // Fecha de fin para filtro de hechos histÃ³ricos
 
         try {
             executeJob(input, output, startDate, endDate);
@@ -63,17 +63,13 @@ public class GraphJob {
 
         // Database config
         Properties properties = new Properties();
-        InputStream fi = GraphJob.class.getResourceAsStream("/mongodb.properties");
-        try {
+        try (InputStream fi = GraphJob.class.getResourceAsStream("/mongodb.properties")) {
             properties.load(fi);
             conf.set("mongodb.database_server", properties.getProperty("database_server"));
             conf.set("mongodb.database_port", properties.getProperty("database_port"));
             conf.set("mongodb.database_name", properties.getProperty("database_name"));
         } catch (IOException ex) {
             Logger.getLogger(GraphJob.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        finally {
-            fi.close();
         }
 
         FileInputFormat.setInputPaths(conf, new Path(input));
@@ -95,7 +91,7 @@ public class GraphJob {
         client.setConf(conf);
         JobClient.runJob(conf);
 
-        // Registrar ejecución
+        // Registrar ejecuciÃ³n
         MongoClient mongo = new MongoClient(conf.get("mongodb.database_server"), 
                 Integer.parseInt(conf.get("mongodb.database_port")));
         try {
