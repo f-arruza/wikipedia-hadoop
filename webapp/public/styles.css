@@ -1,0 +1,9 @@
+div#search, div#load{
+  margin: 0 auto;
+  text-align: center;
+  padding: 10px 50px;
+}
+#search input, #search select, #search span{
+  font-family: 'Helvetica';
+  margin-left: 10px;
+}
