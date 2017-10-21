@@ -11,6 +11,8 @@ var db = monk('172.24.100.95:8089/wiki');
 
 var routes = require('./routes/index');
 var facts = require('./routes/facts');
+var executions = require('./routes/executions');
+var persons = require('./routes/persons');
 
 var app = express();
 
@@ -34,6 +36,8 @@ app.use(function(req,res,next){
 
 app.use('/', routes);
 app.use('/facts', facts);
+app.use('/executions', executions);
+app.use('/persons', persons);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

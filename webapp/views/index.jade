@@ -5,47 +5,64 @@ html
         meta(name="viewport" content="width=device-width, initial-scale=1")
         meta(name="description" content="A finite state machine chart with editable and interactive features.")
         meta(charset="UTF-8")
-        script(src="/script.js")
-        script(src="/release/go.js")
-        script(src="/assets/js/gosamples.js")
+
     body(onload="init()")
       div(id="sample")
           div(id="myDiagramDiv" style="border: solid 1px black; width: 100%; height: 600px")
-          div(id="search")
-              span Mes y Año de Inicio
-              select(id="mes_inicio")
-                option(value=1) Enero
-                option(value=2) Febrero
-                option(value=3) Marzo
-                option(value=4) Abril
-                option(value=5) Mayo
-                option(value=6) Junio
-                option(value=7) Julio
-                option(value=8) Agosto
-                option(value=9) Septiembre
-                option(value=10) Octubre
-                option(value=11) Noviembre
-                option(value=12) Diciembre
-              input(id="ano_inicio" placeholder="Año Inicio")
-              span Mes y Año de Fin
-              select(id="mes_fin")
-                option(value=1) Enero
-                option(value=2) Febrero
-                option(value=3) Marzo
-                option(value=4) Abril
-                option(value=5) Mayo
-                option(value=6) Junio
-                option(value=7) Julio
-                option(value=8) Agosto
-                option(value=9) Septiembre
-                option(value=10) Octubre
-                option(value=11) Noviembre
-                option(value=12) Diciembre
-              input(id="ano_fin" placeholder="Año Fin")
-              button(type="button") Buscar
-          div(id="load")
-            select
-              each execution in executions
-                option(value=execution.value) #{execution.name}
-            button(type="button") Cargar Busqueda
-      link(rel="stylesheet" href='/styles.css')
+          div(id="load" class="row")
+            h1 Realizar Búsqueda
+            form(on_submit="return false;")
+              select(id="execution")
+                option(value="0") Selecciona una opción
+                each execution in executions
+                  option(value=execution.value) #{execution.name}
+              span Si no seleccionas una búsqueda anterior, se ejecutará una nueva (puede tardar)
+              h1 Filtros
+              span Fecha Inicial
+              select(id="start_month")
+                option(value="01") Enero
+                option(value="02") Febrero
+                option(value="03") Marzo
+                option(value="04") Abril
+                option(value="05") Mayo
+                option(value="06") Junio
+                option(value="07") Julio
+                option(value="08") Agosto
+                option(value="09") Septiembre
+                option(value="10") Octubre
+                option(value="11") Noviembre
+                option(value="12") Diciembre
+              input(id="start_year" placeholder="Año Inicio")
+              br
+              span Fecha Final
+              select(id="end_month")
+                option(value="01") Enero
+                option(value="02") Febrero
+                option(value="03") Marzo
+                option(value="04") Abril
+                option(value="05") Mayo
+                option(value="06") Junio
+                option(value="07") Julio
+                option(value="08") Agosto
+                option(value="09") Septiembre
+                option(value="10") Octubre
+                option(value="11") Noviembre
+                option(value="12") Diciembre
+              input(id="end_year" placeholder="Año Fin")
+              br
+              span Hecho
+              input(id="fact" placeholder="Nombre del Hecho")
+              br
+              span Lugar
+              input(id="place" placeholder="Nombre del Lugar")
+              br
+              span Personaje
+              input(id="person" placeholder="Nombre del Personaje")
+              br
+              br
+              button(type="button" id="loadbtn") Cargar Busqueda
+              button(type="button" id="verifybtn") Verificar Ejecución
+    link(rel="stylesheet" href='/styles.css')
+    script(src="/assets/js/jquery.min.js")
+    script(src="/script.js")
+    script(src="/release/go.js")

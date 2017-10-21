@@ -15,7 +15,7 @@ router.get('/', async function(req, res) {
       execution.end_date.substring(0, 4) + "/" + execution.end_date.substring(4, 6);
       executions.push(option);
     });
-    res.render('index', { title: 'Taller 3', executions: executions});
+    res.render('index', { title: 'Taller 2', executions: executions});
   });
 });
 

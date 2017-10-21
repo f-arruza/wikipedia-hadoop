@@ -1,9 +1,32 @@
 div#search, div#load{
-  margin: 0 auto;
-  text-align: center;
-  padding: 10px 50px;
+  /*margin: 0 auto;*/
+  /*text-align: center;*/
+  border: solid #336699 1px;
+  margin: 10px;
+  width: 60%;
+  vertical-align: middle;
+  position: relative;
+  display: inline-block;
+  text-align: left;
+  padding: 5px;
 }
-#search input, #search select, #search span{
+
+h1{
+  margin: 0px;
   font-family: 'Helvetica';
-  margin-left: 10px;
+  font-size: 14px;
+}
+
+body {
+  font-family: 'Helvetica';
+  margin-left: 14px;
+}
+
+span {
+  /*font-size: 1px;*/
+  margin-right: 10px;
+}
+
+form *{
+  margin: 5px;
 }
